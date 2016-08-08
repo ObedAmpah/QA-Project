@@ -12,7 +12,7 @@ $(document).ready(function() {
 			console.log("The user entered " + input.val().toLowerCase());
 
 			
-			// split() method creates an array within inputSplit
+			// split() method creates an array within inputRev
 			var inputRev = input.val().split(' ').map(function (item) {
 			    return item.split('').reverse().join('');
 			}).join(' ');
@@ -29,20 +29,18 @@ $(document).ready(function() {
 			// Push the user input  the array 
 			inputArr.push(input.val().split(' '));
 
-			// Create an array for the DOM items
-			var DOMoutputArr = [];
-
 			// Print out the items in the array
 			for (var i = 0; i < outputArr.length; i++) {
 
-				DOMoutputArr.push('<span>' + outputArr[i] + '</span>');
+				$('#user_output').html(outputArr[i].join(' '));
 
-				$('#user_output').html(DOMoutputArr.join(" "));
-
-				console.log(inputArr[i]);
-				console.log(outputArr[i]);
+				// console.log(inputArr[i]);
+				// console.log(outputArr[i]);
 
 			}
+				// var reg = /'.*?'|".*?"|\S+/g;
+
+				// var ouputString = $('#user_output').html(outputArr[i].join(' '));
 
 
 		});
