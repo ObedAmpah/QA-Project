@@ -3,45 +3,34 @@ $(document).ready(function() {
 	var input = $('#user_text');
 	var submitter = $('#sub_button');
 
+	// Variable names should help you understand what is happening, not representative of the data
+	// Update: Variable names are not helping and you are lost
+	//TODO: FIX naming
+
 
 		submitter.click(function() {
 
+			// Set a variable that contains the user input values
+			var inputVal = input.val();
 			
-			// This is my search regex /'.*?'|".*?"|\S+/g
+			// split() method creates an array of the input values
+			var inputArrSplit = inputVal.split(' ');
 
-			console.log("The user entered " + input.val().toLowerCase());
-
-			
-			// split() method creates an array within inputRev
-			var inputRev = input.val().split(' ').map(function (item) {
+			// The map() method loops over each item in an array and then we split the letters of each array item, reverse them, and rejoin them
+			var inputArrMap = inputArrSplit.map(function (item) {
 			    return item.split('').reverse().join('');
-			}).join(' ');
+			});
 
-			// Create an empty array to push the reversed words to
-			var outputArr = [];
+			// 
+			for (var i = 0; i < inputArrMap.length; i++) {
 
-			// Create an empty array to push the input words to
-			var inputArr = [];
+				$('#user_output').append("<span>" + inputArrMap[i] + "</span> ");
 
-			// Push the reversed words to the array
-			outputArr.push(inputRev.split(' '));
-
-			// Push the user input  the array 
-			inputArr.push(input.val().split(' '));
-
-			// Print out the items in the array
-			for (var i = 0; i < outputArr.length; i++) {
-
-				$('#user_output').html(outputArr[i].join(' '));
-
-				// console.log(inputArr[i]);
-				// console.log(outputArr[i]);
+				if (inputArrSplit[i] == inputArrMap[i]) {
+					console.log(inputArrSplit[i] + " is a palindrome");
+				}
 
 			}
-				// var reg = /'.*?'|".*?"|\S+/g;
-
-				// var ouputString = $('#user_output').html(outputArr[i].join(' '));
-
 
 		});
 
