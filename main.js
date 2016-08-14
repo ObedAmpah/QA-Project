@@ -21,21 +21,27 @@ $(document).ready(function() {
 		// Loop through the array of reversed input values
 		for (var i = 0; i < userValRevArr.length; i++) {
 
-			// IF you find a string value that is forwards and backwards equal
+			// Flag the palindromes
 			if (userValSplitArr[i] == userValRevArr[i]) {
 
-				// Append the matches (found palindromes) to the #user_ouput dom element, inside a inline HTML element, and store this in a variable
-				var palindromeFlag = $('#user_output').append('<span>' + userValRevArr[i] + '</span>');
-
+				// Store the reversed word output in variable as this is a palindrome
+				var palindrome = $('#user_output').append('<span class="rev_word">' + userValRevArr[i] + '</span> <br/>');
+		
 				// Append our palindrome found text to the found palindrome variable
-				palindromeFlag.append('<figcaption> That is a palindrome. Cool! </figcaption>');
+				palindrome.append('<figcaption> That is a palindrome. Cool! </figcaption>');
 
-				// Reset the input but setting its value to an empty string.
-				input.val('');
+			} else {
+
+				// Print out the reversed word without a palindrome flag
+				$('#user_output').append('<span class="rev_word">' + userValRevArr[i] + '</span> <br/>');
 
 			}
 
+
 		}
+
+		// Reset the input but setting its value to an empty string.
+		input.val('');
 
 	});
 
