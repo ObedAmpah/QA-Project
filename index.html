@@ -6,14 +6,7 @@
 
     <meta charset="utf-8" />
 
-    <title>Sample</title>
-
-    <!-- REACT -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-dom.js"></script>
-
-    <!-- BABEL -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+    <title>Palindrome: A QA-slackers production</title>
 
     <!-- JQUERY -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -31,6 +24,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css">
 
     <!-- FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet' type='text/css'>
 
     <!-- CUSTOM STYLES -->
     <link rel="stylesheet" type="text/css" href="main.css">
@@ -38,26 +32,28 @@
 
   <body>
 
-    <div id="app" class="main_container">
+    <div id="main_container" class="col-md-12">
 
-		<div>
-			
-			Enter Text:<input type="text" id="user_text" value="" />
+        <div class="row">
 
-			<button type="button" id="sub_button">Click Me</button>
+            <h1 class="title">Palindro.me</h1>
 
-		</div>	
-		<div>
-			
-			You Entered: <figure id="user_output"></figure>
+    		<div id="input_container" class="col-md-4">
+    			
+    			Enter Text:<input type="text" id="user_text" value="" />
+                <button type="button" id="sub_button">Click Me</button>
 
-		</div>
+    		</div>	
+    		<div id="output_container" class="col-md-6 col-md-offset-1">
+    			
+    			Your Reverse Text is... <figure id="user_output"></figure>
+
+    		</div>
+
+        </div>
 
     </div>
 
-    <script type="text/babel">
-
-    </script>
 
   </body>
 

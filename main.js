@@ -37,7 +37,6 @@ $(document).ready(function() {
 
 			}
 
-
 		}
 
 		// Reset the input but setting its value to an empty string.
