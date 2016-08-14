@@ -1,34 +1,37 @@
 $(document).ready(function() { 
 
+	// Store dom elements into variables
 	var input = $('#user_text');
 	var submitter = $('#sub_button');
 
-	// Variable names should help you understand what is happening, not representative of the data
-	// Update: Variable names are not helping and you are lost
-	// 3TODO: FIX naming
-
-
+	// Create a click event function
 	submitter.click(function() {
 
-		// Set a variable that contains the user input values
-		var inputVal = input.val();
+		// Set a variable that contains the user input value
+		var userInput = input.val();
 		
-		// split() method creates an array of the input values
-		var inputArrSplit = inputVal.split(' ');
+		// Use the split() method to separate the single string value into the individual words
+		var userValSplitArr = userInput.split(' ');
 
-		// The map() method loops over each item in an array and then we split the letters of each array item, reverse them, and rejoin them
-		var inputArrMap = inputArrSplit.map(function (item) {
+		// The map() method loops over each item in the array of user input values. We then split the individual letters of each item/value, reverse them, and rejoin them
+		var userValRevArr = userValSplitArr.map(function (item) {
 		    return item.split('').reverse().join('');
 		});
 
-		for (var i = 0; i < inputArrMap.length; i++) {
+		// Loop through the array of reversed input values
+		for (var i = 0; i < userValRevArr.length; i++) {
 
+			// IF you find a string value that is forwards and backwards equal
+			if (userValSplitArr[i] == userValRevArr[i]) {
 
-			if (inputArrSplit[i] == inputArrMap[i]) {
+				// Append the matches (found palindromes) to the #user_ouput dom element, inside a inline HTML element, and store this in a variable
+				var palindromeFlag = $('#user_output').append('<span>' + userValRevArr[i] + '</span>');
 
-				var palindromeFlag = $('#user_output').append('<span>' + inputArrMap[i] + '</span>');
-
+				// Append our palindrome found text to the found palindrome variable
 				palindromeFlag.append('<figcaption> That is a palindrome. Cool! </figcaption>');
+
+				// Reset the input but setting its value to an empty string.
+				input.val('');
 
 			}
 
